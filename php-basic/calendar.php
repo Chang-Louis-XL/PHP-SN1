@@ -430,6 +430,10 @@ echo "</div>";
 
 
 </style>
+
+<br>
+<br>
+<br>
 <?php 
 
 $days=[];

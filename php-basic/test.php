@@ -56,13 +56,49 @@
             echo "<td>{$subjectScores[$i]}</td>"; // 顯示每個科目的分數
         }
         echo "</tr>";
-    }
-    
+    }  
     // 使用 HTML 表格結束
     echo "</table>";
 
 
-    ?>
+
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";    
+?>
+
+<style>
+    .bolck-table{
+        display: flex;
+        width:380px;
+
+    }
+</style>
+
+<?php
+echo "<div class='bolck-table'>";
+echo "<div class = 'iteam-header'>日</div>";
+echo "<div class = 'iteam-header'>一</div>";
+echo "<div class = 'iteam-header'>二</div>";
+echo "<div class = 'iteam-header'>三</div>";
+echo "<div class = 'iteam-header'>四</div>";
+echo "<div class = 'iteam-header'>五</div>";
+echo "<div class = 'iteam-header'>六</div>";
+
+
+
+
+
+
+echo "</div>";
+?>
+
+
+
+
+
 
 </body>
 
