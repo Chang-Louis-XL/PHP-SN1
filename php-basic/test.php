@@ -29,11 +29,11 @@
     ];
 
     for ($i = 0; $i < 5; $i++) {
-        for($j=0 ; $j<5;$j++){
-        echo  $a[$i];  
+        for ($j = 0; $j < 5; $j++) {
+            echo $a[$i];
         }
-        
-           
+
+
 
     }
 
@@ -47,7 +47,7 @@
         echo "<th>$subject</th>"; // 顯示科目標題
     }
     echo "</tr>";
-    
+
     // 輸出成績
     for ($i = 0; $i < 5; $i++) {
         echo "<tr>";
@@ -56,44 +56,95 @@
             echo "<td>{$subjectScores[$i]}</td>"; // 顯示每個科目的分數
         }
         echo "</tr>";
-    }  
+    }
     // 使用 HTML 表格結束
     echo "</table>";
 
 
 
 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";    
-?>
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    ?>
 
-<style>
-    .bolck-table{
-        display: flex;
-        width:380px;
+    <style>
+        .bolck-table {
+            display: flex;
+            width: 380px;
+            flex-wrap: wrap;
+        }
 
+        .item {
+            margin-left: -1px;
+            margin-top:-1px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid lightgreen;
+            background: white;
+        }
+        .item:hover{
+            transform : scale(1.3);
+            background:yellow;
+            font-weight: bold;
+            color:blue;
+            transition:  0.3s;
+        }
+
+        .item-header{
+            margin-left:-1px;
+            margin-top:-1px;
+            width: 50px;
+            height: 25px;
+            border: 1px solid lightgreen;
+            background-color: darkgreen;
+            text-align: center;
+            display:inline-block;
+            color:lightgreen
+        }
+
+    .holiday{
+        background-color: pink;
     }
-</style>
+    </style>
 
-<?php
-echo "<div class='bolck-table'>";
-echo "<div class = 'iteam-header'>日</div>";
-echo "<div class = 'iteam-header'>一</div>";
-echo "<div class = 'iteam-header'>二</div>";
-echo "<div class = 'iteam-header'>三</div>";
-echo "<div class = 'iteam-header'>四</div>";
-echo "<div class = 'iteam-header'>五</div>";
-echo "<div class = 'iteam-header'>六</div>";
+    <?php
 
 
 
+    echo "<div class='bolck-table'>";
+    echo "<div class = 'item-header'>日</div>";
+    echo "<div class = 'item-header'>一</div>";
+    echo "<div class = 'item-header'>二</div>";
+    echo "<div class = 'item-header'>三</div>";
+    echo "<div class = 'item-header'>四</div>";
+    echo "<div class = 'item-header'>五</div>";
+    echo "<div class = 'item-header'>六</div>";
+
+    $month = 4;
+    $firstday = strtotime(date("Y-$month-1"));
+    $firstWeekStartDay = date("w", $firstday);
 
 
+    $days = [];
+    for ($i = 0; $i < 42; $i++) {
+        $diff = $i - $firstWeekStartDay;
+        $days[] = date("Y-m-d", strtotime("$diff days", $firstday));
+    }
 
-echo "</div>";
-?>
+   foreach ($days as $day) {
+        $format = explode("-", $day)[2];
+        $w = date("w", strtotime($day));
+        if ($w == 0 || $w == 6) {
+            echo "<div class= 'item holiday'>$format</div>";
+        } else {
+           echo "<div class = 'item'>$format</div>";
+       }
+   }
+
+    echo "</div>";
+    ?>
 
 
 
