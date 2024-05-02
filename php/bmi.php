@@ -7,6 +7,7 @@
 </head>
 <body>
  <h1>計算BMI</h1>   
+ <!-- form>div>label+input:number -->
  <form action="bmi_result.php" method='get'>
     <div>
         <label for="height">身高:</label>
