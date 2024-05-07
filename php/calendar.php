@@ -1,14 +1,21 @@
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         table {
+        table {
             border-collapse: collapse;
             border: 3px double blue;
+            border: 3px double blue;
         }
+
+        td {
+            padding: 5px 10px;
+            border: 1px solid lightgreen;
 
         td {
             padding: 5px 10px;
@@ -55,12 +62,14 @@
             z-index: 10;
 
         }
+        }
 
         .holiday {
             background: pink;
         }
     </style>
 </head>
+
 
 <body>
     <h2>萬年曆</h2>
@@ -71,6 +80,12 @@
     </form>
     <?php
 
+    $year = date("Y");
+    $firstDay = strtotime(date("Y-$month-1"));
+    $firstWeekStartDay = date("w", $firstDay);
+    $days = date("t", $firstDay);
+    $lastDay = strtotime(date("Y-$month-$days"));
+    $birthday = '1974-4-1';
 
     // if(isset($_GET['month'])){
 //     $month=$_GET['month'];
@@ -137,6 +152,8 @@
 
             echo "<div class='item holiday'>$format</div>";
         } else {
+            echo "<div class='item holiday'>$format</div>";
+        } else {
 
             echo "<div class='item'>";
             echo "<div class='date'>$format</div>";
@@ -144,7 +161,14 @@
         }
     }
     echo "</div>";
+            echo "<div class='item'>";
+            echo "<div class='date'>$format</div>";
+            echo "</div>";
+        }
+    }
+    echo "</div>";
 
+    ?>
     ?>
 
     <p>&nbsp;</p>
@@ -154,6 +178,14 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
 </body>
+
 
 </html>
