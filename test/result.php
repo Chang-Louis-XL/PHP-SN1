@@ -9,12 +9,13 @@
 
 <h1>登入成功</h1>
 <?php
-$acc=$_GET['acc'];
-
+session_start();
 ?>
-歡迎<?=$_GET['acc'];?>
+歡迎 <?=$_SESSION['login'];?>
 
 <a href="login.php">回首頁</a>
+<br>
+<a href="logout.php">登出</a>
 
 </body>
 </html>
