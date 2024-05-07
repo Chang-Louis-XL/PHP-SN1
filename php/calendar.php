@@ -77,20 +77,12 @@
 // }else{
 // $month=date('m');
 // }
-    
-    // 三元運算式 $month = XXX ?(是否為?) true->值給$month
+// 三元運算式 $month = XXX ?(是否為?) true->值給$month
 // $month=(isset($_GET['month']))?$_GET['month']:date("m");
 // $year=(isset($_GET['year']))?$_GET['year']:date("Y");
-    
-
     // 簡化方式只能用在isset並且只有一總情境
     $month = $_GET['month'] ?? date('m');
     $month = $_GET['year'] ?? date('Y');
-
-
-
-
-
     $year = date("Y");
     echo "年" . $year;
     echo "<BR>";
