@@ -7,7 +7,6 @@
     <title>Document</title>
     <style>
         table {
-        table {
             border-collapse: collapse;
             border: 3px double blue;
             border: 3px double blue;
@@ -16,53 +15,48 @@
         td {
             padding: 5px 10px;
             border: 1px solid lightgreen;
+            }
 
-        td {
-            padding: 5px 10px;
-            border: 1px solid lightgreen;
+            .block-table {
+                width: 380px;
+                display: flex;
+                flex-wrap: wrap;
+            }
 
-        }
+            .item {
+                margin-left: -1px;
+                margin-top: -1px;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border: 1px solid lightgreen;
+                position: relative;
+                transition: all 0.3s;
+                background: white;
+            }
 
-        .block-table {
-            width: 380px;
-            display: flex;
-            flex-wrap: wrap;
-        }
+            .item-header {
+                margin-left: -1px;
+                margin-top: -1px;
+                display: inline-block;
+                width: 50px;
+                height: 25px;
+                border: 1px solid lightgreen;
+                text-align: center;
+                background-color: darkgreen;
+                color: lightgreen
+            }
 
-        .item {
-            margin-left: -1px;
-            margin-top: -1px;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 1px solid lightgreen;
-            position: relative;
-            transition: all 0.3s;
-            background: white;
-        }
+            .item:hover {
+                background: yellow;
+                transform: scale(1.3);
+                font-weight: bold;
+                color: blue;
+                transition: all 0.3s;
+                z-index: 10;
 
-        .item-header {
-            margin-left: -1px;
-            margin-top: -1px;
-            display: inline-block;
-            width: 50px;
-            height: 25px;
-            border: 1px solid lightgreen;
-            text-align: center;
-            background-color: darkgreen;
-            color: lightgreen
-        }
-
-        .item:hover {
-            background: yellow;
-            transform: scale(1.3);
-            font-weight: bold;
-            color: blue;
-            transition: all 0.3s;
-            z-index: 10;
-
-        }
-        }
+            }
+        
 
         .holiday {
             background: pink;
@@ -80,22 +74,17 @@
     </form>
     <?php
 
-    $year = date("Y");
-    $firstDay = strtotime(date("Y-$month-1"));
-    $firstWeekStartDay = date("w", $firstDay);
-    $days = date("t", $firstDay);
-    $lastDay = strtotime(date("Y-$month-$days"));
-    $birthday = '1974-4-1';
-
     // if(isset($_GET['month'])){
-//     $month=$_GET['month'];
-// }else{
-// $month=date('m');
-// }
-// 三元運算式 $month = XXX ?(是否為?) true->值給$month
-// $month=(isset($_GET['month']))?$_GET['month']:date("m");
-// $year=(isset($_GET['year']))?$_GET['year']:date("Y");
+    //     $month=$_GET['month'];
+    // }else{
+    // $month=date('m');
+    // }
+    // 三元運算式 $month = XXX ?(是否為?) true->值給$month
+    // $month=(isset($_GET['month']))?$_GET['month']:date("m");
+    // $year=(isset($_GET['year']))?$_GET['year']:date("Y");
     // 簡化方式只能用在isset並且只有一總情境
+
+
     $month = $_GET['month'] ?? date('m');
     $month = $_GET['year'] ?? date('Y');
     $year = date("Y");
@@ -127,14 +116,21 @@
     }
     ?>
 
-
     <div style="width:384px;">
-        <!-- 傳至calendar.php?month；<=($month-1);?>代表echo出這個值；style=為往左 -->
-        <a href="calendar.php?month=<?= ($month - 1); ?>" style="float:left">上一個月</a>
-        <a href="calendar.php?month=<?= ($month + 1); ?>" style="float:right">下一個月</a>
-    </div>
-    <div style='clear:both'></div>
+        <div class="nav" style="text-align: left;">
+            <!-- 傳至calendar.php?month；<=($month-1);?>代表echo出這個值；style=為往左 -->
+            <a href="calendar.php?year=<?= $prev_year; ?>&month=<?= $prev; ?>">上一個月</a>
 
+        </div>
+        <div class="nav" style="text-align: center;">
+
+            <?= $year; ?>年 <?= $month; ?>月
+        </div>
+        <div class="nav" style="text-align: right;">
+            <a href="calendar.php?year=<?= $next_year; ?>&month=<?= $next; ?>">下一個月</a>
+
+        </div>
+    </div>
 
     <?php
     echo "<div class='block-table'>";
@@ -152,15 +148,7 @@
 
             echo "<div class='item holiday'>$format</div>";
         } else {
-            echo "<div class='item holiday'>$format</div>";
-        } else {
 
-            echo "<div class='item'>";
-            echo "<div class='date'>$format</div>";
-            echo "</div>";
-        }
-    }
-    echo "</div>";
             echo "<div class='item'>";
             echo "<div class='date'>$format</div>";
             echo "</div>";
@@ -169,7 +157,7 @@
     echo "</div>";
 
     ?>
-    ?>
+
 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
