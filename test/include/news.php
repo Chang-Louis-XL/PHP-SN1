@@ -54,12 +54,11 @@
     </style>
 </head>
 <body>
-<!-- basename取路徑 -->
 <?php $file=explode(".",basename(__FILE__))[0];?>
 <?php include_once "./layouts/header.php";?>
 <?php include_once "./layouts/nav.php";?>
 <marquee>這是一段跑馬燈</marquee>
-<main>主要內容</main>
+<main>最新消息</main>
 <footer>頁腳</footer>
 </body>
 </html>

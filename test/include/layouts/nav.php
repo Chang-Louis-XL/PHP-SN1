@@ -1,4 +1,3 @@
-<!-- <php echo $file ?> -->
 <nav>
     <!-- 三元運算式，如果==是正確的，印出active否則為空白 -->
     <a href="index.php" class="<?=($file=='index')?'active':'';?>">首頁</a>
