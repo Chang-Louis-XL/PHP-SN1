@@ -54,7 +54,7 @@
     </style>
 </head>
 <body>
-    <?php $file=explode=(".",basename($_SESSION))
+    <?php $file=explode=(".",basename($_SESSION));
     <marquee behavior="" direction="">跑馬燈</marquee>
     <main>主頁</main>
     <footer>頁尾</footer>
