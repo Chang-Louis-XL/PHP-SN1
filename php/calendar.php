@@ -94,7 +94,9 @@
 
     $days = [];
     for ($i = 0; $i < 42; $i++) {
+        // 它用來計算當前迭代的次數 $i 與該月的第一天是星期幾 $firstWeekStartDay 之間的差，以便找到該格子對應的日期，如$i等於0時與 $firstWeekStart 為-3代表$i與$firstWeekStart的差值。
         $diff = $i - $firstWeekStartDay;
+        // strtotime("$diff days", $firstDay):它接受一個日期字串和一個參考日期（在這裡是 $firstDay），並返回一個Unix時間戳。在這個例子中，日期字串是 "$diff days"，其中 $diff 是表示相對於參考日期的天數差。這樣就可以得到 $firstDay 之後或之前若干天的日期的Unix時間戳。
         $days[] = date("Y-m-d", strtotime("$diff days", $firstDay));
     }
 
