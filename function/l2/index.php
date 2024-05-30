@@ -1,5 +1,5 @@
 <?php
-include_once "db.php";
+include_once "db3.php";
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ include_once "db.php";
     // update('students', ['dept' => '2'], ['dept' => '1']);
     //insert('dept', ['code' => '801', 'name' => '綜合演藝學系']);
     // del('dept', ['name' => '綜合演藝學系']);
-    dd(q("select * from `students` where `dept`='3'  order by `id` desc limit 10"));
+    // dd(q("select * from `students` where `dept`='3'  order by `id` desc limit 10"));
     ?>
     ?>
 </body>

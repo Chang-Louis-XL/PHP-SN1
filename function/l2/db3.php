@@ -57,6 +57,8 @@ function save($table, $array)
  * @param mixed $arg 條件參數，可以是陣列或單一值
  * @return int 返回受影響的行數
  */
+
+
 function update($table, $cols, $arg)
 {
     //宣告全域變數
@@ -79,7 +81,10 @@ function update($table, $cols, $arg)
     }
     echo $sql;
     return $pdo->exec($sql);
+    
+
 }
+
 
 function insert($table, $cols)
 {
