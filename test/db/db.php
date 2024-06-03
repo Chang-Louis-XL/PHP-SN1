@@ -84,3 +84,4 @@ function save ($table , $array)
         insert($table,$array);
     }
 }
+
