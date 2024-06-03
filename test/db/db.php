@@ -3,12 +3,31 @@
 $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
 $pdo = new PDO($dsn, 'root', '');
 
+function dd($array){
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}
 function array2sql($array)
 {
     foreach ($array as $key => $value) {
         $tmp[] = "`$key`=$value";
     }
     return $tmp;
+}
+
+all('students', " WHERE `id`<3");
+
+function all($table, $where)
+{
+    global $pdo;
+    $sql = "SELECT * FROM `{$table}` {$where}";
+    $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+    echo $sql ;
+    echo "<br>";
+    return $rows;
+    
 }
 
 update('students', ['dept' => '2'], ['dept' => '1']);
@@ -22,6 +41,8 @@ function update($table, $cols, $arg)
     $tmp = array2sql($cols);
 
     $sql .= join(",", $tmp);
+    print_r($tmp);
+    echo "<br>";
     echo $sql;
 
     if (is_array($arg)) {
@@ -31,7 +52,9 @@ function update($table, $cols, $arg)
         $sql .= " WHERE `id`='{$arg}'";
     }
     echo "<br>";
-    echo $sql;
+    print_r ($tt);
+    echo "<br>";
+    echo $sql ;
     return $sql;
 
 }

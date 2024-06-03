@@ -41,16 +41,16 @@ class Cat extends Animal
 // 此新增出來為物件
 // $cat = new Animal();
 // echo $cat->name; 
-// echo $cat->$age; 
+echo $cat->$age; 
 // echo $cat->$weight; 
 
 // $cat = new Cat() ; 
 // echo $cat -> name ; 
 // echo $cat -> run();
 
-$ani = new Animal('join') ;
-$ani -> run ();
-echo "<br>";
-echo $ani -> name ;
+// $ani = new Animal('join') ;
+// $ani -> run ();
+// echo "<br>";
+// echo $ani -> name ;
 
 ?>

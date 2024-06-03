@@ -1,5 +1,5 @@
 <?php
-include_once "db3.php";
+include_once "db.php";
 
 ?>
 <!DOCTYPE html>
@@ -15,13 +15,13 @@ include_once "db3.php";
     <?php
 
     dd(all('students', " WHERE `id`<5"));
-    dd(find('students', ['uni_id' => 'F200000035', 'parents' => '孔進豐']));
+    // dd(find('students', ['uni_id' => 'F200000035', 'parents' => '孔進豐']));
     // update('students', ['dept' => '2'], ['dept' => '1']);
     //insert('dept', ['code' => '801', 'name' => '綜合演藝學系']);
     // del('dept', ['name' => '綜合演藝學系']);
     // dd(q("select * from `students` where `dept`='3'  order by `id` desc limit 10"));
     ?>
-    ?>
+    
 </body>
 
 </html>
