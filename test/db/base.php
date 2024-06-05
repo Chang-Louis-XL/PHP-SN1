@@ -35,7 +35,7 @@ class DB {
 //這個TABLE 對照哪個
     public function all(...$arg){
         $sql= "select * form $this->table ";
-        $sql = $this ->select($sql,...$arg);
+        // $sql = $this ->select($sql,...$arg);
        
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -43,4 +43,5 @@ class DB {
 }
 
 $Student = new DB('students');
-echo $Student->all(['id'<3]);
+echo $Student->all(['id<3']);
+// all('students', " WHERE `id`<3");
