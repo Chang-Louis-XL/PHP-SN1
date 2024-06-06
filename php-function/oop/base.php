@@ -21,7 +21,7 @@ class DB
         $sql = "select * from $this->table ";
         $sql = $this->select($sql, ...$arg);
 
-        //echo $sql;
+        echo $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -154,6 +154,7 @@ $Dept = new DB('dept');
 // $Dept->del(21);
 // echo "</pre>";
 
+print_r($Student->all());
 // $dept = $Dept->find(2);
 // dd($dept);
 // $dept['name'] = '電子商務系';
