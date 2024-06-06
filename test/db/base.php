@@ -39,9 +39,25 @@ class DB {
        
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+function find ($arg)
+{
+    $sql = "SELECT * FROM `{$this->table}` WHERE";
+
+    if (is_array($arg)){
+        $tmp = $this->array2sql($arg);
+        $sql .= join(" && ", $tmp);
+    } else {
+        $sql .= "`id`='{$arg}'";
+    }
+    echo $sql;
+
+    return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
-$Student = new DB('students');
-echo $Student->all(['id<3']);
+
+
+}
+// $Student = new DB('students');
+// echo $Student->all(['id<3']);
 // all('students', " WHERE `id`<3");

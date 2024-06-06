@@ -10,9 +10,13 @@ function dd($data)
 
 class car
 {
+
+    // properties
     public $brand;
     public $type;
 
+
+    // Methids/action
     public function __construct($name)
     {
         echo "Hi $name ~ object 誕生 ";
