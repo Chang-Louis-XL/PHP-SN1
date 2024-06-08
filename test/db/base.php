@@ -1,35 +1,14 @@
 <?php
 
-class DB
-{
-     // 類別宣告變數後面只能加字串
+class DB{
     protected $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
     protected $pdo;
     protected $table;
 
-    public function __construct($table)
-    {
-        $this->pdo = new PDO($this->dsn, 'root', '');
-        // = $table;指construct($table)的table
-        // $this->table指protected $table的table
-        $this->table = $table;
+    public function __construct($table){
+        $this->pdo = new PDO($this->dsn,'root','');
+        $this->table=$table;
     }
-
-
-    public function all(...$arg)
-    {
-        $sql = "select * from $this->table ";
-        $sql = $this->select($sql, ...$arg);
-
-        echo $sql;
-        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-
-
-
-
-
 
     protected  function array2sql($array)
     {
@@ -39,6 +18,7 @@ class DB
 
         return $tmp;
     }
+
 
     protected function select($sql, ...$arg)
     {
@@ -54,14 +34,17 @@ class DB
         return $sql;
     }
 
+    public function all(...$arg)
+    {
+        $sql = "select * from $this->table ";
+        $sql = $this->select($sql, ...$arg);
+        echo $sql;
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }
 
-
-
-
 $Student = new DB('students');
-$Dept = new DB('dept');
-print_r($Student->all());
 
-// all('students', " WHERE `id`<3");
+print_r($Student->all());

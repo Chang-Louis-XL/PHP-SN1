@@ -15,6 +15,28 @@ class DB
         $this->table = $table;
     }
 
+    protected  function array2sql($array)
+    {
+        foreach ($array as $key => $value) {
+            $tmp[] = "`$key`='$value'";
+        }
+
+        return $tmp;
+    }
+
+    protected function select($sql, ...$arg)
+    {
+        if (!empty($arg[0]) && is_array($arg[0])) {
+            $tmp = $this->array2sql($arg[0]);
+            $sql = $sql . " where " . implode(" && ", $tmp);
+        }
+
+        if (!empty($arg[1])) {
+            $sql = $sql . $arg[1];
+        }
+
+        return $sql;
+    }
 
     public function all(...$arg)
     {
@@ -103,28 +125,7 @@ class DB
         return $this->pdo->query($sql)->fetchColumn();
     }
 
-    protected  function array2sql($array)
-    {
-        foreach ($array as $key => $value) {
-            $tmp[] = "`$key`='$value'";
-        }
-
-        return $tmp;
-    }
-
-    protected function select($sql, ...$arg)
-    {
-        if (!empty($arg[0]) && is_array($arg[0])) {
-            $tmp = $this->array2sql($arg[0]);
-            $sql = $sql . " where " . implode(" && ", $tmp);
-        }
-
-        if (!empty($arg[1])) {
-            $sql = $sql . $arg[1];
-        }
-
-        return $sql;
-    }
+    
 
 
     function q($sql)
@@ -154,7 +155,7 @@ $Dept = new DB('dept');
 // $Dept->del(21);
 // echo "</pre>";
 
-print_r($Student->all());
+// print_r($Student->all());
 // $dept = $Dept->find(2);
 // dd($dept);
 // $dept['name'] = '電子商務系';
