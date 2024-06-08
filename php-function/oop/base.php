@@ -122,6 +122,8 @@ class DB
         $sql = "SELECT COUNT(*) FROM `{$this->table}`";
         $sql = $this->select($sql, ...$arg);
 
+
+        echo $sql;
         return $this->pdo->query($sql)->fetchColumn();
     }
 
@@ -166,4 +168,6 @@ $Dept = new DB('dept');
 // echo $Student->count(['dept' => 2]);
 // echo "<br>";
 // echo $Student->math('max', 'graduate_at');
+
+$Student->count();
 
