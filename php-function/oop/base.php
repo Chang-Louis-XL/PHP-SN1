@@ -166,7 +166,7 @@ $Dept = new DB('dept');
 // $Dept->save($dept);
 
 
-// echo $Student->count(['dept' => 2]);
+echo $Student->count();
 // echo "<br>";
 // echo $Student->math('max', 'graduate_at');
 
