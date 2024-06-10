@@ -63,7 +63,7 @@ class DB
             $sql .= " `id`='{$arg}'";
         }
 
-        echo $sql;
+        // echo $sql;
 
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
@@ -123,7 +123,7 @@ class DB
         $sql = $this->select($sql, ...$arg);
 
 
-        echo $sql;
+        // echo $sql;
         return $this->pdo->query($sql)->fetchColumn();
     }
 
@@ -158,6 +158,7 @@ $Dept = new DB('dept');
 // echo "</pre>";
 
 // print_r($Student->all());
+// print_r($Student->all([],"limit 0,20"));
 // $dept = $Dept->find(2);
 // dd($dept);
 // $dept['name'] = '電子商務系';
@@ -169,5 +170,5 @@ $Dept = new DB('dept');
 // echo "<br>";
 // echo $Student->math('max', 'graduate_at');
 
-$Student->count();
+
 
