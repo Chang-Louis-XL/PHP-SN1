@@ -38,6 +38,8 @@ class DB
         return $sql;
     }
 
+    // 當function all 被宣告時，宣告中的括弧帶入值給all，再將內容按照順序給select，最後select回傳$sql
+
     public function all(...$arg)
     {
         $sql = "select * from $this->table ";
