@@ -46,6 +46,7 @@ class DB
         $sql = $this->select($sql, ...$arg);
 
         echo $sql;
+        // fetch(PDO::FETCH_ASSOC)回傳資料表中全部欄值
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -66,7 +67,7 @@ class DB
         }
 
         // echo $sql;
-
+  // fetch(PDO::FETCH_ASSOC)回傳資料表中第一欄值
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -115,6 +116,7 @@ class DB
         $sql = $this->select($sql, ...$arg);
 
         //echo $sql;
+            // fetchColumn該欄的值
         return $this->pdo->query($sql)->fetchColumn();
     }
 
